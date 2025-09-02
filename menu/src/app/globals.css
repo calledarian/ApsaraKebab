@@ -1,42 +1,24 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base colors */
+  --background: #fff8f0;        /* Warm cream background */
+  --foreground: #2b1a0b;        /* Dark brown text, earthy tone */
+  
+  /* Accent colors */
+  --primary: #d94118;           /* Rich kebab-red, for buttons and highlights */
+  --secondary: #f2a93b;         /* Golden spice, for accents and hover effects */
+  --highlight: #eae0c8;         /* Soft warm cream for cards or sections */
+  --shadow: #c49a6c;            /* Light brown shadow effect */
+  --success: #6aa84f;           /* Fresh green, for herbs or positive highlights */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+    --background: #1a1a1a;      /* Dark mode background */
+    --foreground: #f5f1e7;      /* Off-white text for contrast */
+    --primary: #f07a49;         /* Brightened kebab-red for dark */
+    --secondary: #f2c572;       /* Golden accent in dark mode */
+    --highlight: #2b1a0b;       /* Darker warm cream for cards in dark mode */
+    --shadow: #5a3e2b;          /* Dark brown shadow */
+    --success: #8fc373;         /* Fresh green for dark mode */
   }
 }
