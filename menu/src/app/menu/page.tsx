@@ -1,4 +1,7 @@
+export const revalidate = 3600;
+
 import { createClient, type EntrySkeletonType, type Asset } from 'contentful';
+import { unstable_cache } from 'next/cache';
 import MenuClient from './MenuClient';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -28,11 +31,18 @@ const client = createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
 });
 
-const RestaurantMenuPage = async () => {
-  const response = await client.getEntries<MenuEntrySkeleton>({
-    content_type: 'menu',
-  });
+const getCachedMenu = unstable_cache(
+  async () => {
+    return await client.getEntries<MenuEntrySkeleton>({
+      content_type: 'menu',
+    });
+  },
+  ['menu-data'], // Cache key
+  { revalidate: 3600, tags: ['menu'] }
+);
 
+const RestaurantMenuPage = async () => {
+  const response = await getCachedMenu();
   const allItems: MenuItem[] = response.items.map((item) => ({
     id: item.sys.id,
     name: item.fields.title,

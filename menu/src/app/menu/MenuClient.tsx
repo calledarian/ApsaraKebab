@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 interface MenuItem {
@@ -77,11 +78,12 @@ const MenuClient = ({ initialItems }: MenuClientProps) => {
               >
                 {item.category}
               </div>
-              <img
-                src={item.image || 'images/images.png'}
-                className="card-img-top"
+              <Image
+                src={item.image || '/placeholder-image.png'}
                 alt={item.name}
-                style={{ height: '200px', objectFit: 'cover' }}
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <div className="card-body d-flex flex-column justify-content-between">
                 <h5 className="card-title d-flex justify-content-between align-items-center">
