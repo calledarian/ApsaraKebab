@@ -78,13 +78,15 @@ const MenuClient = ({ initialItems }: MenuClientProps) => {
               >
                 {item.category}
               </div>
-              <Image
-                src={item.image || '/placeholder-image.png'}
-                alt={item.name}
-                fill
-                style={{ objectFit: 'cover' }}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+              {item.image && (
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              )}
               <div className="card-body d-flex flex-column justify-content-between">
                 <h5 className="card-title d-flex justify-content-between align-items-center">
                   <span style={{ color: 'var(--primary)' }}>{item.name}</span>
