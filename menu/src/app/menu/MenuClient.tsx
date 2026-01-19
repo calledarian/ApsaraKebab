@@ -41,9 +41,8 @@ const MenuClient = ({ initialItems }: MenuClientProps) => {
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`btn rounded-pill px-4 ${
-              activeCategory === cat ? 'btn-highlight' : 'btn-outline-highlight'
-            }`}
+            className={`btn rounded-pill px-4 ${activeCategory === cat ? 'btn-highlight' : 'btn-outline-highlight'
+              }`}
             style={
               activeCategory === cat
                 ? { backgroundColor: 'var(--highlight)', color: 'var(--primary)' }
@@ -79,13 +78,14 @@ const MenuClient = ({ initialItems }: MenuClientProps) => {
                 {item.category}
               </div>
               {item.image && (
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+                <div className="position-relative w-100" style={{ height: "300px" }}>
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-fit-cover"
+                  />
+                </div>
               )}
               <div className="card-body d-flex flex-column justify-content-between">
                 <h5 className="card-title d-flex justify-content-between align-items-center">
